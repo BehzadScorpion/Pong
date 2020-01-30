@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Player1Controller : MonoBehaviour
 {
-    private float speed = 6;
+    private Rigidbody2D rbody;
+    private float speed = 7;
     // Start is called before the first frame update
     void Start()
     {
-       
+        rbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float horiz = Input.GetAxis("HorizontalWASD");
-        float vert = Input.GetAxis("VerticalWASD");
-        GetComponent<Rigidbody2D>().velocity = new Vector2(horiz* speed, vert * speed);
+       float vert = Input.GetAxis("VerticalWASD");
+       rbody.velocity = new Vector2(0f , vert * speed);
     }
 }
